@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# 리액트 프로젝트 시작하기
+1. node.js 설치 (LTS버전)
+2. create-react-app 설치(최초 1번만 진행) 
+```
+$ npm install -g create-react-app
+```
+3. react 프로젝트 생성
+```
+$ npx create-react-app 프로젝트 이름
+``` 
+4. react 프로젝트 실행
+```
+$ cd 프로젝트 폴드
+$ npm start
+```
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- http://localhost:3000 에서 프론트엔드 서버 실행
 
-## Available Scripts
 
-In the project directory, you can run:
+<details open>
+  <summary>23-06-12 React init</summary>
+  - 리액트는 Component로 기본구성된다. 
+  - Component는 페이지설계에서 기본단위이며 .js 또는 .jsx와 같은 확장자를 가진다.
+  - Component내 다른 Component를 불러올땐 <OtherComponent /> 이와같이 입력하면 자동으로 import한다.
+  - 불러온 Component는 <> <OtherComponent /> </> 와 같이 입력하며
+    <> </>안에 다른 태그이름을 넣을 수도 있다.
+  ```
+import React from 'react'
 
-### `npm start`
+const ClickEvent = () => {
+  const greeting = e =>{
+    alert('안녕안녕');
+  }
+  const changeBox = e => {
+    const $box = document.querySelector('.box');
+    $box.style.backgroundColor = 'skyblue';
+    $box.style.width = '200px';
+    $box.style.height = '200px';
+  }
+    return (
+     {/*return( ) 괄호안은 jsx영역이며 js를 적용 시킬땐 '{ }' 를 사용하여 작성한다. 
+     변수를 입력하고자 할땐 마찬가지로 '{ }' 안에 넣는다.*/}
+    <>
+        <button id='btn1' onClick={ () => alert('클릭잘했어')}>클릭해봐</button>
+        <button id='btn2' onClick={ greeting }>클릭2</button>
+        <button id='btn3' onMouseOver={ changeBox }>클릭3</button>
+        
+        <div className='box'></div>
+    </>
+  )
+}
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+export default ClickEvent //ClickEvent를 리턴
+  ```
+  - props는 부모에서 자식으로 값을 객체형태로 전달한다.
+  - Const function(pros) 와 같이 작성하면
+    props.var1, props.var2로 변수를 불러올수 있다.
+</details>
