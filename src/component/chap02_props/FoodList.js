@@ -1,6 +1,7 @@
 import React from 'react'
 import '../chap01_event/style.css'
 import FoodItem from './FoodItem'
+import SayHello from '../../SayHello'
 const FoodList = () => {
   //fetch를 통해 서버에서 음식 목록을 json으로 수신
   const food = {
@@ -34,14 +35,27 @@ const FoodList = () => {
     ]
   }
   return (
+
+    
     <ul>
+
+      <SayHello>
+        <a href='http://www.naver.com'>네이버링크</a>
+        <p>asdasdasd</p>
+      </SayHello>
+      <SayHello>
+        <a href='http://www.google.co.kr'>구글링크</a>
+      </SayHello>
+
       {
         food.foodList.map(f => 
         <FoodItem foodName={f.fName} foodId={f.id} price={f.price}/>)
       }
-       {/* <FoodItem foodName='짜장면' price={6000} foodId='chinese'/>
+       {/* 
+       <FoodItem foodName='짜장면' price={6000} foodId='chinese'/>
        <FoodItem foodName='해물파전' price={12000} foodId='korean'/>
-       <FoodItem foodName='가츠동' price={8000} foodId='japanese'/> */}
+       <FoodItem foodName='가츠동' price={8000} foodId='japanese'/> 
+       */}
     </ul>
   )
 }
